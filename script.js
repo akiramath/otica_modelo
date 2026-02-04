@@ -160,6 +160,105 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
+// CARROSSEL DE IMAGENS
+// ========================================
+(function initCarousel() {
+  const carouselSlides = $$('.carousel-slide');
+  const carouselDots = $$('.carousel-dot');
+  const prevBtn = $('.carousel-btn-prev');
+  const nextBtn = $('.carousel-btn-next');
+  const progressBar = $('.carousel-progress');
+
+  // Verificar se o carrossel existe
+  if (carouselSlides.length === 0) return;
+
+  let currentSlide = 0;
+  let autoplayTimer = null;
+  const totalSlides = carouselSlides.length;
+  const autoplayDelay = 5000; // 5 segundos entre cada foto
+
+  function updateCarousel(newIndex) {
+    // Garantir que o índice está dentro dos limites
+    if (newIndex < 0) newIndex = totalSlides - 1;
+    if (newIndex >= totalSlides) newIndex = 0;
+    
+    // Remover classe active de todos
+    carouselSlides.forEach(slide => slide.classList.remove('active'));
+    carouselDots.forEach(dot => {
+      dot.classList.remove('active');
+      dot.setAttribute('aria-selected', 'false');
+    });
+
+    // Adicionar classe active ao slide atual
+    carouselSlides[newIndex].classList.add('active');
+    carouselDots[newIndex].classList.add('active');
+    carouselDots[newIndex].setAttribute('aria-selected', 'true');
+
+    currentSlide = newIndex;
+  }
+
+  function nextSlide() {
+    updateCarousel(currentSlide + 1);
+    resetProgressBar();
+  }
+
+  function prevSlide() {
+    updateCarousel(currentSlide - 1);
+  }
+
+  function goToSlide(index) {
+    updateCarousel(index);
+  }
+
+  // Reinicia a barra de progresso
+  function resetProgressBar() {
+    if (progressBar) {
+      progressBar.style.animation = 'none';
+      void progressBar.offsetWidth; // Force reflow
+      progressBar.style.animation = 'carouselProgress 5s linear forwards';
+    }
+  }
+
+  // Reinicia o timer e a barra de progresso
+  function restartAutoplay() {
+    // Limpa o timer anterior
+    clearInterval(autoplayTimer);
+    
+    // Reinicia a barra de progresso
+    resetProgressBar();
+    
+    // Inicia novo timer
+    autoplayTimer = setInterval(nextSlide, autoplayDelay);
+  }
+
+  // Event listeners dos botões
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      restartAutoplay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      restartAutoplay();
+    });
+  }
+
+  // Event listeners dos dots
+  carouselDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+      restartAutoplay();
+    });
+  });
+
+  // Iniciar autoplay
+  restartAutoplay();
+})();
+
+// ========================================
 // TOAST
 // ========================================
 function showToast(title, msg) {

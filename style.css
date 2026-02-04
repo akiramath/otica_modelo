@@ -456,6 +456,220 @@ h1 span {
 }
 
 /* ========================================
+   CARROSSEL DE IMAGENS
+======================================== */
+.carousel-section {
+  background: var(--bg);
+  padding: 120px 60px;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.carousel-slide.prev {
+  opacity: 0;
+  transform: translateX(-100%) scale(0.95);
+}
+
+.carousel-slide.next {
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Botões de navegação */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(13, 13, 13, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-prev {
+  left: 20px;
+}
+
+.carousel-btn-next {
+  right: 20px;
+}
+
+.carousel-btn svg {
+  stroke: currentColor;
+}
+
+/* Indicadores (dots) */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
+}
+
+/* Barra de progresso */
+.carousel-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--accent);
+  z-index: 11;
+  animation: carouselProgress 5s linear forwards;
+}
+
+@keyframes carouselProgress {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .carousel-btn {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .carousel-btn:hover {
+  background: var(--accent);
+}
+
+[data-theme="light"] .carousel-dot {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .carousel-dot:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsividade do carrossel */
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 80px 24px;
+  }
+  
+  .carousel-track {
+    height: 350px;
+  }
+  
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .carousel-btn-prev {
+    left: 10px;
+  }
+  
+  .carousel-btn-next {
+    right: 10px;
+  }
+  
+  .carousel-dots {
+    bottom: 15px;
+    gap: 8px;
+  }
+  
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-track {
+    height: 280px;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ========================================
    SEÇÕES - Layout limpo
 ======================================== */
 section {
@@ -576,7 +790,9 @@ section {
 }
 
 .about-visual {
-  background: var(--surface);
+  background: url('imgs/sobre.png') no-repeat center center;
+  background-size: cover;
+  background-position: center center;
   display: flex;
   align-items: center;
   justify-content: center;

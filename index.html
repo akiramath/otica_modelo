@@ -153,6 +153,7 @@
       </button>
       
       <nav id="mainNav" role="navigation" aria-label="Menu principal">
+        <a href="#galeria">Galeria</a>
         <a href="#servicos">Serviços</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
@@ -206,6 +207,54 @@
       </div>
     </section>
 
+    <!-- Carrossel de Imagens -->
+    <section class="carousel-section" id="galeria" aria-labelledby="carousel-title">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">Galeria</span>
+          <h2 id="carousel-title">Nossos produtos em destaque</h2>
+          <p>Confira as armações e lentes mais procuradas da nossa loja</p>
+        </div>
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <img src="imgs/1.jpeg" alt="Produto em destaque 1" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="imgs/2.jpeg" alt="Produto em destaque 2" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="imgs/3.png" alt="Produto em destaque 3" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="imgs/4.png" alt="Produto em destaque 4" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="imgs/5.png" alt="Produto em destaque 5" loading="lazy">
+            </div>
+          </div>
+          <button class="carousel-btn carousel-btn-prev" aria-label="Slide anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-btn carousel-btn-next" aria-label="Próximo slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <div class="carousel-dots" role="tablist" aria-label="Navegação do carrossel">
+            <button class="carousel-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button class="carousel-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="carousel-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            <button class="carousel-dot" data-slide="3" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+            <button class="carousel-dot" data-slide="4" role="tab" aria-selected="false" aria-label="Slide 5"></button>
+          </div>
+          <div class="carousel-progress"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Serviços Section -->
     <section class="services-section" id="servicos" aria-labelledby="services-title">
       <div class="section-inner">
@@ -253,9 +302,7 @@
     <section class="about-section" id="sobre" aria-labelledby="about-title">
       <div class="section-inner">
         <div class="about-grid">
-          <div class="about-visual" aria-hidden="true">
-            <span class="about-visual-icon">◎</span>
-          </div>
+          <div class="about-visual" aria-hidden="true"></div>
           <div class="about-content">
             <span class="section-tag">Sobre nós</span>
             <h2 id="about-title">Tradição e qualidade há mais de duas décadas</h2>
