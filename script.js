@@ -281,15 +281,6 @@ function setErr(id, show) {
   $(id).classList.toggle('show', show);
 }
 
-$('#btnDemo').onclick = () => {
-  $('#nome').value = 'Maria Silva';
-  $('#tel').value = '(43) 98765-4321';
-  $('#email').value = 'maria@email.com';
-  $('#assunto').value = 'Orçamento de lentes';
-  $('#msg').value = 'Olá, gostaria de saber valores para lentes multifocais com antirreflexo. Obrigada.';
-  showToast('Exemplo preenchido', 'Clique em enviar para testar');
-};
-
 form.onsubmit = async e => {
   e.preventDefault();
   
@@ -318,9 +309,35 @@ form.onsubmit = async e => {
     return;
   }
 
+  // Configurar URL de retorno para a página atual
+  const nextInput = form.querySelector('input[name="_next"]');
+  if (nextInput) {
+    nextInput.value = window.location.href;
+  }
+
   form.querySelector('button[type="submit"]').disabled = true;
-  await new Promise(r => setTimeout(r, 800));
-  form.reset();
+  showToast('Enviando...', 'Aguarde um momento');
+  
+  // Enviar formulário via fetch para não sair da página
+  try {
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      form.reset();
+      showToast('Mensagem enviada', 'Retornaremos em breve');
+    } else {
+      showToast('Erro', 'Não foi possível enviar. Tente novamente.');
+    }
+  } catch (error) {
+    showToast('Erro', 'Não foi possível enviar. Tente novamente.');
+  }
+  
   form.querySelector('button[type="submit"]').disabled = false;
-  showToast('Mensagem enviada', 'Retornaremos em breve');
 };

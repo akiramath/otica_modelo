@@ -265,11 +265,6 @@
         </div>
         <div class="services-grid" role="list">
           <article class="service-card" role="listitem">
-            <div class="service-icon" aria-hidden="true">◎</div>
-            <h3>Exame de Vista</h3>
-            <p>Avaliação completa com equipamentos modernos e profissionais qualificados.</p>
-          </article>
-          <article class="service-card" role="listitem">
             <div class="service-icon" aria-hidden="true">◈</div>
             <h3>Lentes Premium</h3>
             <p>Lentes com tratamentos antirreflexo, filtro azul e proteção UV de alta qualidade.</p>
@@ -288,11 +283,6 @@
             <div class="service-icon" aria-hidden="true">◐</div>
             <h3>Óculos de Sol</h3>
             <p>Modelos com lentes polarizadas e proteção completa contra raios UV.</p>
-          </article>
-          <article class="service-card" role="listitem">
-            <div class="service-icon" aria-hidden="true">▢</div>
-            <h3>Lentes de Contato</h3>
-            <p>Adaptação e venda de lentes de contato com acompanhamento profissional.</p>
           </article>
         </div>
       </div>
@@ -316,28 +306,24 @@
                 <span class="feature-check" aria-hidden="true">✓</span>
                 <div>
                   <h4>Entrega Rápida</h4>
-                  <p>Óculos prontos em até 24h para lentes simples</p>
                 </div>
               </li>
               <li class="feature-item">
                 <span class="feature-check" aria-hidden="true">✓</span>
                 <div>
-                  <h4>Garantia Estendida</h4>
-                  <p>1 ano de garantia em lentes e armações</p>
+                  <h4>Garantia</h4>
                 </div>
               </li>
               <li class="feature-item">
                 <span class="feature-check" aria-hidden="true">✓</span>
                 <div>
                   <h4>Pagamento Facilitado</h4>
-                  <p>Parcelamento em até 12x sem juros</p>
                 </div>
               </li>
               <li class="feature-item">
                 <span class="feature-check" aria-hidden="true">✓</span>
                 <div>
                   <h4>Pós-venda</h4>
-                  <p>Ajustes gratuitos e suporte contínuo</p>
                 </div>
               </li>
             </ul>
@@ -358,7 +344,12 @@
           <article class="contact-card">
             <h3>Envie uma mensagem</h3>
             <p>Retornamos em até 2 horas úteis</p>
-            <form id="formContato" class="form-grid" novalidate aria-label="Formulário de contato">
+            <form id="formContato" class="form-grid" action="https://formsubmit.co/cacilda.assolini@hotmail.com" method="POST" novalidate aria-label="Formulário de contato">
+              <!-- Configurações do FormSubmit -->
+              <input type="hidden" name="_subject" value="Nova mensagem do site Ótica Modelo">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="">
+              <input type="text" name="_honey" style="display:none">
               <div class="form-row">
                 <div class="field">
                   <label for="nome">Nome</label>
@@ -390,7 +381,6 @@
               </div>
               <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Enviar mensagem</button>
-                <button type="button" id="btnDemo" class="btn btn-secondary">Preencher exemplo</button>
               </div>
             </form>
           </article>
@@ -416,7 +406,7 @@
                 <span class="info-icon" aria-hidden="true">✉</span>
                 <div>
                   <h4>E-mail</h4>
-                  <p><a href="mailto:contato@oticamodelo.com">contato@oticamodelo.com</a></p>
+                  <p><a href="mailto:cacilda.assolini@hotmail.com">cacilda.assolini@hotmail.com</a></p>
                 </div>
               </div>
               <div class="info-item">
@@ -494,11 +484,8 @@
   <!-- Footer -->
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-logo">
-        <div class="logo-mark" role="img" aria-label="Logo Ótica Modelo"></div>
-        <span class="logo-text">Ótica Modelo</span>
-      </div>
       <p class="footer-text">© <span id="ano"></span> Ótica Modelo. Todos os direitos reservados.</p>
+      <p class="footer-text"><a href="https://www.instagram.com/m.a_t.h?igsh=dzJwbWNjOXdidW9u" target="_blank">by Matheus Mansano Rodrigues.</a></p>
     </div>
   </footer>
 
