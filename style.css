@@ -144,7 +144,7 @@ header.scrolled .header-inner {
 .logo-mark {
   width: 48px;
   height: 48px;
-  background-image: url(./logo.jpg);
+  background-image: url(./imgs/logo.jpg);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
