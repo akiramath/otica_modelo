@@ -188,6 +188,10 @@ nav a {
   transition: color var(--transition-fast);
 }
 
+.info-social a {
+  font-size: 20px;
+}
+
 nav a::after {
   content: '';
   position: absolute;
