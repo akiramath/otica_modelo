@@ -844,7 +844,6 @@ section {
   content: '';
   position: absolute;
   inset: 40px;
-  border: 1px solid var(--border);
 }
 
 .about-visual-icon {
