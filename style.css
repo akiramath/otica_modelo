@@ -144,7 +144,7 @@ header.scrolled .header-inner {
 .logo-mark {
   width: 48px;
   height: 48px;
-  background-image: url(./imgs/logo.jpg);
+  background-image: url(./imgs/logo.webp);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -905,7 +905,7 @@ section {
 }
 
 .about-visual {
-  background: url('imgs/sobre.png') no-repeat center center;
+  background: url('imgs/sobre.webp') no-repeat center center;
   background-size: cover;
   min-height: 600px;
   position: relative;
